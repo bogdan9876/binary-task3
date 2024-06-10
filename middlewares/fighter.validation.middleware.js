@@ -1,36 +1,44 @@
 import { FIGHTER } from "../models/fighter.js";
 import { fighterService } from "../services/fighterService.js";
 
-const createFighterValid = (req, res, next) => {
+const checkAtLeastOnePropertyExists = (body, model) => {
+  return Object.keys(body).some((key) => model.hasOwnProperty(key));
+};
+
+const createFighterValid = async (req, res, next) => {
   const errors = [];
-  if (!req.body.name) {
+  const { name, power, defense, health } = req.body;
+
+  if (!name) {
     errors.push("Name is required");
   }
-  if (!req.body.power) {
+  if (!power) {
     errors.push("Power is required");
   }
-  if (!req.body.defense) {
+  if (!defense) {
     errors.push("Defense is required");
   }
   if (Object.keys(req.body).some((key) => key === "id")) {
     errors.push("Id property is not allowed");
   }
 
-  if (!(+req.body.power >= 1 && +req.body.power <= 100)) {
+  if (power && !(+power >= 1 && +power <= 100)) {
     errors.push("Power should be between 1 and 100");
   }
-  if (!(+req.body.defense >= 1 && +req.body.defense <= 10)) {
+  if (defense && !(+defense >= 1 && +defense <= 10)) {
     errors.push("Defense should be between 1 and 10");
   }
-  if (!req.body.health) {
+  if (!health) {
     req.body.health = 100;
-  } else if (!(+req.body.health >= 80 && +req.body.health <= 120)) {
+  } else if (!(+health >= 80 && +health <= 120)) {
     errors.push("Health should be between 80 and 120");
   }
 
-  const isNameExists = fighterService.search({ name: req.body.name });
-  if (isNameExists) {
-    errors.push("User already exists with this name");
+  if (name) {
+    const isNameExists = await fighterService.search({ name });
+    if (isNameExists) {
+      errors.push("User already exists with this name");
+    }
   }
 
   if (errors.length > 0) {
@@ -40,8 +48,10 @@ const createFighterValid = (req, res, next) => {
   }
 };
 
-const updateFighterValid = (req, res, next) => {
+const updateFighterValid = async (req, res, next) => {
   const errors = [];
+  const { name, power, defense, health } = req.body;
+
   if (!checkAtLeastOnePropertyExists(req.body, FIGHTER)) {
     errors.push("You should pass at least one property");
   }
@@ -49,22 +59,19 @@ const updateFighterValid = (req, res, next) => {
     errors.push("Id property is not allowed");
   }
 
-  if (req.body.power && !(+req.body.power >= 1 && +req.body.power <= 100)) {
+  if (power && !(+power >= 1 && +power <= 100)) {
     errors.push("Power should be between 1 and 100");
   }
-  if (
-    req.body.defense &&
-    !(+req.body.defense >= 1 && +req.body.defense <= 10)
-  ) {
+  if (defense && !(+defense >= 1 && +defense <= 10)) {
     errors.push("Defense should be between 1 and 10");
   }
-  if (req.body.health && !(+req.body.health >= 80 && +req.body.health <= 120)) {
+  if (health && !(+health >= 80 && +health <= 120)) {
     errors.push("Health should be between 80 and 120");
   }
 
-  if (req.body.name) {
-    const isNameExists = fighterService.search({ name: req.body.name });
-    if (isNameExists) {
+  if (name) {
+    const isNameExists = await fighterService.search({ name });
+    if (isNameExists && isNameExists.id !== req.params.id) {
       errors.push("User already exists with this name");
     }
   }
