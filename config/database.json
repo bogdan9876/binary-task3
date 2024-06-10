@@ -1,0 +1,117 @@
+{
+  "users": [
+    {
+      "firstName": "q",
+      "id": "0263ebbe-b87d-4eb7-ac49-8a742fb8b992",
+      "createdAt": "2023-01-23T21:02:35.855Z"
+    },
+    {
+      "firstName": "dada",
+      "lastName": "dada",
+      "email": "addada@gmail.com",
+      "phoneNumber": "+380234567985",
+      "password": "1111",
+      "id": "19917dfc-9bb6-4f3d-a63c-5d01dffb6366",
+      "createdAt": "2023-01-23T21:05:01.262Z"
+    }
+  ],
+  "fighters": [
+    {
+      "name": "q",
+      "power": 1,
+      "defense": 2,
+      "health": 100,
+      "id": "eb8948c7-e1cc-4d51-988f-5244e79e1db9",
+      "createdAt": "2023-01-23T19:25:59.934Z"
+    },
+    {
+      "name": "2",
+      "power": 2,
+      "defense": 3,
+      "health": 100,
+      "id": "91f682d9-3950-45e8-9e75-ef6980c6974b",
+      "createdAt": "2023-01-23T19:30:50.546Z"
+    },
+    {
+      "name": "24",
+      "power": 2,
+      "defense": 3,
+      "health": 100,
+      "id": "f401106c-ba95-44fc-ac75-6055774398eb",
+      "createdAt": "2023-01-23T19:31:07.594Z"
+    },
+    {
+      "name": "1",
+      "power": 1,
+      "defense": 1,
+      "health": 100,
+      "id": "be4d85f0-54c5-4717-87b0-7ab896815459",
+      "createdAt": "2023-01-23T19:32:07.619Z"
+    },
+    {
+      "name": "qwerrt",
+      "power": 1,
+      "defense": 2,
+      "health": 100,
+      "id": "7f9cd616-1825-4d02-98da-f3c9c8a1c4d9",
+      "createdAt": "2023-01-23T21:22:11.044Z"
+    },
+    {
+      "name": "qwqwqw",
+      "power": 2,
+      "defense": 3,
+      "health": 100,
+      "id": "17fe9c25-6deb-40c3-8970-3fbdd34072b0",
+      "createdAt": "2023-01-23T21:24:00.739Z"
+    },
+    {
+      "name": "11111",
+      "power": 2,
+      "defense": 3,
+      "health": 100,
+      "id": "e968091e-09fa-4925-9f98-53d7574698ab",
+      "createdAt": "2023-01-23T21:24:05.032Z"
+    },
+    {
+      "name": "qwerqrqr",
+      "power": 1,
+      "defense": 1,
+      "health": 100,
+      "id": "bbd63fdf-d8f7-440a-bf51-a2830c002939",
+      "createdAt": "2023-01-23T21:27:23.921Z"
+    },
+    {
+      "name": "qqqqqq",
+      "power": 1,
+      "defense": 1,
+      "health": 100,
+      "id": "e2d0da04-74af-4937-b4ed-28c9f0a13f1c",
+      "createdAt": "2023-01-23T21:27:27.960Z"
+    },
+    {
+      "name": "wwwwwwwwww",
+      "power": 1,
+      "defense": 1,
+      "health": 100,
+      "id": "3a8b7da1-a917-4589-9287-b92eaa34d1d6",
+      "createdAt": "2023-01-23T21:27:29.711Z"
+    },
+    {
+      "name": "qqqqqqqqqqqqqq",
+      "power": 1,
+      "defense": 2,
+      "health": 100,
+      "id": "720af5be-7e25-459b-a001-eda559698231",
+      "createdAt": "2023-01-23T21:35:53.848Z"
+    },
+    {
+      "name": "qweqwe",
+      "power": 1,
+      "defense": 2,
+      "health": 100,
+      "id": "7c7fba97-64ba-4c0f-aa5d-01f150051534",
+      "createdAt": "2023-01-23T21:38:09.420Z"
+    }
+  ],
+  "fights": []
+}
