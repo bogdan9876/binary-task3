@@ -44,6 +44,9 @@ router.post(
   createUserValid,
   (req, res, next) => {
     try {
+      if (req.body.id) {
+        throw new Error("ID should not be provided in the request body.");
+      }
       const newUser = userService.create(req.body);
       res.data = newUser;
     } catch (err) {
@@ -60,6 +63,9 @@ router.put(
   updateUserValid,
   (req, res, next) => {
     try {
+      if (req.body.id) {
+        throw new Error("ID should not be provided in the request body.");
+      }
       const updatedUser = userService.update(req.params.id, req.body);
       if (!updatedUser) throw new Error("User not found.");
       res.data = updatedUser;
