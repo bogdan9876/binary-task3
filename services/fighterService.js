@@ -4,6 +4,7 @@ class FighterService {
   getAll() {
     return fighterRepository.getAll();
   }
+  
   create(fighter) {
     return fighterRepository.create(fighter);
   }
@@ -17,11 +18,7 @@ class FighterService {
   }
 
   search(search) {
-    const item = fighterRepository.getOne(search);
-    if (!item) {
-      return null;
-    }
-    return item;
+    return fighterRepository.getOne(search);
   }
 }
 

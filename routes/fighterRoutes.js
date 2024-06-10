@@ -12,7 +12,7 @@ router.get(
   "/",
   (req, res, next) => {
     try {
-      res.data = fighterService.getFighters();
+      res.data = fighterService.getAll();
     } catch (err) {
       res.err = err;
     } finally {
@@ -21,6 +21,7 @@ router.get(
   },
   responseMiddleware
 );
+
 router.get(
   "/:id",
   (req, res, next) => {
@@ -34,6 +35,7 @@ router.get(
   },
   responseMiddleware
 );
+
 router.post(
   "/",
   createFighterValid,
@@ -50,13 +52,14 @@ router.post(
   },
   responseMiddleware
 );
+
 router.put(
   "/:id",
   updateFighterValid,
   (req, res, next) => {
     try {
       if (!res.error) {
-        res.data = fighterService.updateFighterInfo(req.params.id, req.body);
+        res.data = fighterService.update(req.params.id, req.body);
       }
     } catch (err) {
       res.error = err;
@@ -66,11 +69,12 @@ router.put(
   },
   responseMiddleware
 );
+
 router.delete(
   "/:id",
   (req, res, next) => {
     try {
-      res.data = fighterService.deleteId(req.params.id);
+      res.data = fighterService.delete(req.params.id);
     } catch (err) {
       res.err = err;
     } finally {

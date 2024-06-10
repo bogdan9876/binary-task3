@@ -18,9 +18,6 @@ const createFighterValid = async (req, res, next) => {
   if (!defense) {
     errors.push("Defense is required");
   }
-  if (Object.keys(req.body).some((key) => key === "id")) {
-    errors.push("Id property is not allowed");
-  }
 
   if (power && !(+power >= 1 && +power <= 100)) {
     errors.push("Power should be between 1 and 100");
@@ -28,24 +25,14 @@ const createFighterValid = async (req, res, next) => {
   if (defense && !(+defense >= 1 && +defense <= 10)) {
     errors.push("Defense should be between 1 and 10");
   }
-  if (!health) {
-    req.body.health = 100;
-  } else if (!(+health >= 80 && +health <= 120)) {
+  if (health && !(+health >= 80 && +health <= 120)) {
     errors.push("Health should be between 80 and 120");
   }
 
-  if (name) {
-    const isNameExists = await fighterService.search({ name });
-    if (isNameExists) {
-      errors.push("User already exists with this name");
-    }
-  }
-
   if (errors.length > 0) {
-    res.status(400).json({ errors });
-  } else {
-    next();
+    return res.status(400).json({ errors });
   }
+  next();
 };
 
 const updateFighterValid = async (req, res, next) => {

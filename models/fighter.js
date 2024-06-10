@@ -1,9 +1,9 @@
 const FIGHTER = {
   id: "",
   name: "",
-  health: 100,
+  health: 85,
   power: 0,
-  defense: 1, // 1 to 10
+  defense: 1,
 };
 
 export { FIGHTER };
