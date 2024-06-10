@@ -59,7 +59,7 @@ const updateFighterValid = async (req, res, next) => {
   if (name) {
     const isNameExists = await fighterService.search({ name });
     if (isNameExists && isNameExists.id !== req.params.id) {
-      errors.push("User already exists with this name");
+      errors.push("Fighter already exists with this name");
     }
   }
 
