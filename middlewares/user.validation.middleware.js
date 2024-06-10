@@ -6,8 +6,6 @@ const emailRegex =
 const phoneRegex = /^\+380[0-9]{9}$/;
 
 const createUserValid = (req, res, next) => {
-  // TODO: Implement validatior for USER entity during creation
-
   const { firstName, lastName, email, phoneNumber, password } = req.body;
   if (!firstName) {
     res.status(400).send({ error: true, message: "First name is required" });
@@ -42,8 +40,6 @@ const createUserValid = (req, res, next) => {
 
   next();
 };
-
-// TODO: Implement validatior for user entity during update
 
 const updateUserValid = (req, res, next) => {
   userService.checkKeyInModel(USER, req.body);

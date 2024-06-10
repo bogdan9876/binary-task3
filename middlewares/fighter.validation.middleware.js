@@ -2,7 +2,6 @@ import { FIGHTER } from "../models/fighter.js";
 import { fighterService } from "../services/fighterService.js";
 
 const createFighterValid = (req, res, next) => {
-  // TODO: Implement validatior for FIGHTER entity during creation
   const errors = [];
   if (!req.body.name) {
     errors.push("Name is required");
@@ -42,7 +41,6 @@ const createFighterValid = (req, res, next) => {
 };
 
 const updateFighterValid = (req, res, next) => {
-  // TODO: Implement validatior for FIGHTER entity during update
   const errors = [];
   if (!checkAtLeastOnePropertyExists(req.body, FIGHTER)) {
     errors.push("You should pass at least one property");
